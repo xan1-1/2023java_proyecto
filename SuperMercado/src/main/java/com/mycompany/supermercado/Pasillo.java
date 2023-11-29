@@ -8,39 +8,55 @@ package com.mycompany.supermercado;
  * @author Usuario xan
  */
 public class Pasillo {
-    private Producto[] productosEnPasillo;
+    private String nombre;
+    private Producto[] productos; // Usaremos un array para almacenar los productos en el pasillo
+    private static final int CAPACIDAD_PASILLO = 10;
 
-    public Pasillo() {
-        productosEnPasillo = new Producto[10];
+    public Pasillo(String nombre) {
+        this.nombre = nombre;
+        this.productos = new Producto[CAPACIDAD_PASILLO];
     }
 
-    public void organizarProducto(Producto producto, int posicion) {
-        if (posicion >= 0 && posicion < productosEnPasillo.length && productosEnPasillo[posicion] == null) {
-            productosEnPasillo[posicion] = producto;
-        } else {
-            System.out.println("Posición ocupada o inválida en el pasillo.");
-        }
-    }
-
-    public void retirarProducto(int posicion) {
-        if (posicion >= 0 && posicion < productosEnPasillo.length && productosEnPasillo[posicion] != null) {
-            productosEnPasillo[posicion] = null;
-        } else {
-            System.out.println("No hay un producto en la posición especificada.");
-        }
-    }
-
-    public void mostrarOrganizacion() {
-        StringBuilder pasilloInfo = new StringBuilder("Pasillo: ");
-        for (int i = 0; i < productosEnPasillo.length; i++) {
-            if (productosEnPasillo[i] == null) {
-                pasilloInfo.append(" ");
-            } else if (productosEnPasillo[i].getExistencias() == 0) {
-                pasilloInfo.append("R");
+    // Método para agregar un producto al pasillo
+    public void agregarProducto(Producto producto, int posicion) {
+        if (posicion >= 0 && posicion < CAPACIDAD_PASILLO) {
+            if (productos[posicion] == null) {
+                productos[posicion] = producto;
+                JOptionPane.showMessageDialog(null, "Producto agregado al pasillo " + nombre + " en la posición " + posicion);
             } else {
-                pasilloInfo.append("X");
+                JOptionPane.showMessageDialog(null, "La posición en el pasillo ya está ocupada.");
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Posición no válida en el pasillo.");
         }
-        System.out.println(pasilloInfo.toString());
     }
+
+    // Método para retirar un producto del pasillo
+    public void retirarProducto(int posicion) {
+        if (posicion >= 0 && posicion < CAPACIDAD_PASILLO) {
+            if (productos[posicion] != null) {
+                productos[posicion] = null;
+                JOptionPane.showMessageDialog(null, "Producto retirado del pasillo " + nombre + " en la posición " + posicion);
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay un producto en la posición especificada.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Posición no válida en el pasillo.");
+        }
     }
+
+    // Método para mostrar la organización del pasillo
+    public void mostrarOrganizacion() {
+        StringBuilder organizacion = new StringBuilder("Organización del Pasillo " + nombre + ":\n");
+        for (int i = 0; i < CAPACIDAD_PASILLO; i++) {
+            organizacion.append("Posición ").append(i).append(": ");
+            if (productos[i] != null) {
+                organizacion.append(productos[i].getNombre());
+            } else {
+                organizacion.append("Vacía");
+            }
+            organizacion.append("\n");
+        }
+        JOptionPane.showMessageDialog(null, organizacion.toString());
+    }
+}
