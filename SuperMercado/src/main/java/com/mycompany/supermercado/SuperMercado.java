@@ -17,8 +17,9 @@ private List<Producto> productosDisponibles;
     public SuperMercado() {
         productosDisponibles = new ArrayList<>();
         pasillos = new Pasillo[10];
+        String[] ArrayDeNombres = {"Frescos", "Granos", "Carniceria", "Abarrotes", "Cereales", "Limpieza", "Lacteos", "Panaderia", "Hogar", "Congelados"};
         for (int i = 0; i < pasillos.length; i++) {
-            pasillos[i] = new Pasillo(ArrayDeNombres[i]);
+            pasillos[i] = new Pasillo(ArrayDeNombres[i]);  
         }
         comprasRealizadas = new Compra[50]; // Límite de 50 compras
         totalCompras = 0;
