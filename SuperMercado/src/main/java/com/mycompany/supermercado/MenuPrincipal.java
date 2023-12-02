@@ -76,10 +76,10 @@ public class MenuPrincipal {
 
                     switch (reporteOpcion) {
                         case 1:
-                            // Lógica para generar reporte de productos disponibles
+                            supermercado.generarReporteProductosDisponibles() // Lógica para generar reporte de productos disponibles
                             break;
                         case 2:
-                            // Lógica para generar reporte de organización de pasillos
+                            supermercado.generarReporteOrganizacionPasillos(); // Lógica para generar reporte de organización de pasillos
                             break;
                         case 3:
                             // Lógica para generar reporte de caducidad
