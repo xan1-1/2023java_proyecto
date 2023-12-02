@@ -60,3 +60,22 @@ public class Pasillo {
         JOptionPane.showMessageDialog(null, organizacion.toString());
     }
 }
+
+    // Método para mostrar la organización del pasillo con existencias
+    public void mostrarOrganizacionConExistencias() {
+        StringBuilder organizacion = new StringBuilder("Organización del Pasillo " + nombre + ":\n");
+        for (int i = 0; i < CAPACIDAD_PASILLO; i++) {
+            organizacion.append("Posición ").append(i).append(": ");
+            if (productos[i] != null) {
+                organizacion.append(productos[i].getNombre());
+                if (productos[i].getExistencias() == 0) {
+                    organizacion.append(" (R)");
+                }
+            } else {
+                organizacion.append("Vacía");
+            }
+            organizacion.append("\n");
+        }
+        JOptionPane.showMessageDialog(null, organizacion.toString());
+    }
+}
