@@ -1,5 +1,47 @@
 package com.mycompany.supermercado;
 
+
+/**SuperMercado superMercado = new SuperMercado(//LLENAR CUANDO HAGAN LOS REPORTES/);
+        Reportes reportes = new Reportes(superMercado);
+
+        // Menú principal
+      int opcion;
+        do {
+            String input = JOptionPane.showInputDialog(
+                    "Menú de Reportes:\n" +
+                            "1. Reporte de Productos Disponibles\n" +
+                            "2. Reporte de Organización de Pasillos\n" +
+                            "3. Reporte de Caducidad\n" +
+                            "4. Salir\n" +
+                            "Seleccione una opción:");
+
+          
+            opcion = Integer.parseInt(input);
+
+           
+            switch (opcion) {
+                case 1:
+                    reportes.generarReporteProductosDisponibles();
+                    break;
+                case 2:
+                    reportes.generarReporteOrganizacionPasillos();
+                    break;
+                case 3:
+                   
+                    reportes.generarReporteCaducidad(//LLENAR CUANDO HAGAN EL MODULO DE REPORTES//);
+                    break;
+                case 4:
+                    JOptionPane.showMessageDialog(null, "Saliendo del programa.");
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opción no válida. Por favor, seleccione una opción válida.");
+            }
+        } while (opcion != 4);
+    }
+}/**
+
+
+    
 import java.util.Date;
 import java.util.List;
 
