@@ -69,10 +69,22 @@ public class Reportes {
     }
 
     public void generarReporteOrganizacionPasillos() {
-        for (int i = 0; i < SuperMercado.getPasillos().length; i++) {
-            SuperMercado.getPasillos()[i].mostrarOrganizacion();
+        StringBuilder reporte = new StringBuilder("Reporte de Organización de Pasillos:\n\n");
+          //informe para el producto visual.
+         for (Pasillo pasillo : superMercado.getPasillos()) {
+            reporte.append(pasillo.obtenerOrganizacionVisual()).append("\n\n");
         }
+
+        //informe para productos registrados
+        for (Pasillo pasillo : superMercado.getPasillos()) {
+            reporte.append(pasillo.obtenerProductosRegistrados()).append("\n\n");
+        }
+        mostrarMensajeEnVentana(reporte.toString());
     }
+        private void mostrarMensajeEnVentana(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+    
     
     public static void generarReporteCaducidad(List<Producto> listaProductos) {
     Date fechaActual = new Date(); // Obtener la fecha actual
