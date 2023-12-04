@@ -47,20 +47,27 @@ public class Pasillo {
 
 
     // Método para mostrar la organización del pasillo con existencias
-    public void mostrarOrganizacionConExistencias() {
-        StringBuilder organizacion = new StringBuilder("Organización del Pasillo " + nombre + ":\n");
+ public void mostrarOrganizacionVisual() {
+        StringBuilder organizacion = new StringBuilder("Organización Visual del Pasillo " + nombre + ":\n");
         for (int i = 0; i < CAPACIDAD_PASILLO; i++) {
-            organizacion.append("Posición ").append(i).append(": ");
             if (productos[i] != null) {
-                organizacion.append(productos[i].getNombre());
+                organizacion.append("X");
                 if (productos[i].getExistencias() == 0) {
-                    organizacion.append(" (R)");
+                    organizacion.append("R");
                 }
             } else {
-                organizacion.append("Vacía");
+                organizacion.append("-");
             }
-            organizacion.append("\n");
+            organizacion.append(" ");
         }
-        JOptionPane.showMessageDialog(null, organizacion.toString());
+        mostrarMensajeEnVentana(organizacion.toString());
     }
-}
+ public void mostrarProductosRegistrados() {
+        StringBuilder productosRegistrados = new StringBuilder("Productos Registrados en el Pasillo " + nombre + ":\n\n");
+        for (Producto producto : productos) {
+            if (producto != null) {
+                productosRegistrados.append(producto).append("\n\n");
+            }
+        }
+        mostrarMensajeEnVentana(productosRegistrados.toString());
+    }
