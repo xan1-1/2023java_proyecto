@@ -53,8 +53,18 @@ public class Reportes {
     }
 
     public void generarReporteProductosDisponibles() {
-        for (Producto producto : SuperMercado.getProductosDisponibles()) {
-            System.out.println(producto);
+        StringBuilder reporte = new StringBuilder("Reporte de Productos No Organizados:\n");
+
+        for (Producto producto : superMercado.getProductosDisponibles()) {
+            if (!estaOrganizado(producto)) {
+                reporte.append(producto).append("\n");
+            }
+        }
+
+        if (reporte.length() > 0) {
+            JOptionPane.showMessageDialog(null, reporte.toString(), "Productos No Organizados", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Todos los productos están organizados en pasillos.", "Productos No Organizados", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
