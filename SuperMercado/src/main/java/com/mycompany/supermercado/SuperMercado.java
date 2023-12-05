@@ -3,9 +3,15 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  *
- * @author Usuario
+ * @author xan
  */
- public SuperMercado() {
+public class SuperMercado {
+private List<Producto> productosDisponibles;
+    private Pasillo[] pasillos;
+    private Compra[] comprasRealizadas;
+    private int totalCompras;
+
+    public SuperMercado() {
         productosDisponibles = new ArrayList<>();
         pasillos = new Pasillo[10];
         String[] ArrayDeNombres = {"Frescos", "Granos", "Carniceria", "Abarrotes", "Cereales", "Limpieza", "Lacteos", "Panaderia", "Hogar", "Congelados"};
@@ -53,7 +59,7 @@ import java.util.List;
     // Implementa los métodos para generar reportes
 
     public static void main(String[] args) {
-        Supermercado supermercado = new Supermercado();
+        SuperMercado SuperMercado = new SuperMercado();
 
         while (true) {
             // Implementa el menú principal
