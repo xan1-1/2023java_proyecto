@@ -1,18 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.supermercado;
-import javax.swing.JOptionPane;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-/**
- *
- * @author Usuario xan
- */
 public class MenuPrincipal {
-  public static void main(String[] args) {
-          SuperMercado supermercado = new SuperMercado(); // Debes crear una instancia de la clase Supermercado
+
+    public static void main(String[] args) {
+          Supermercado supermercado = new Supermercado(); // Debes crear una instancia de la clase Supermercado
 
         while (true) {
             String menu = "Menú Principal:\n" +
@@ -76,10 +65,10 @@ public class MenuPrincipal {
 
                     switch (reporteOpcion) {
                         case 1:
-                            supermercado.generarReporteProductosDisponibles() // Lógica para generar reporte de productos disponibles
+                            // Lógica para generar reporte de productos disponibles
                             break;
                         case 2:
-                            supermercado.generarReporteOrganizacionPasillos(); // Lógica para generar reporte de organización de pasillos
+                            // Lógica para generar reporte de organización de pasillos
                             break;
                         case 3:
                             // Lógica para generar reporte de caducidad
@@ -101,5 +90,5 @@ public class MenuPrincipal {
                     JOptionPane.showMessageDialog(null, "Opción no válida");
             }
         }
-    }  
+    }
 }
