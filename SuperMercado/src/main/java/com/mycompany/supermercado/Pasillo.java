@@ -1,17 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.supermercado;
+package com.mycompany.menuprincipal;
+import javax.swing.JOptionPane;
 /**
  *
- * @author Usuario xan
+ * @author Usuario
  */
 public class Pasillo {
     private String nombre;
     private Producto[] productos; // Usaremos un array para almacenar los productos en el pasillo
     private static final int CAPACIDAD_PASILLO = 10;
 
+    // Constructor
     public Pasillo(String nombre) {
         this.nombre = nombre;
         this.productos = new Producto[CAPACIDAD_PASILLO];
@@ -45,29 +43,18 @@ public class Pasillo {
         }
     }
 
-
-    // Método para mostrar la organización del pasillo con existencias
- public void mostrarOrganizacionVisual() {
-        StringBuilder organizacion = new StringBuilder("Organización Visual del Pasillo " + nombre + ":\n");
+    // Método para mostrar la organización del pasillo
+    public void mostrarOrganizacion() {
+        StringBuilder organizacion = new StringBuilder("Organización del Pasillo " + nombre + ":\n");
         for (int i = 0; i < CAPACIDAD_PASILLO; i++) {
+            organizacion.append("Posición ").append(i).append(": ");
             if (productos[i] != null) {
-                organizacion.append("X");
-                if (productos[i].getExistencias() == 0) {
-                    organizacion.append("R");
-                }
+                organizacion.append(productos[i].getNombre());
             } else {
-                organizacion.append("-");
+                organizacion.append("Vacía");
             }
-            organizacion.append(" ");
+            organizacion.append("\n");
         }
-        mostrarMensajeEnVentana(organizacion.toString());
+        JOptionPane.showMessageDialog(null, organizacion.toString());
     }
- public void mostrarProductosRegistrados() {
-        StringBuilder productosRegistrados = new StringBuilder("Productos Registrados en el Pasillo " + nombre + ":\n\n");
-        for (Producto producto : productos) {
-            if (producto != null) {
-                productosRegistrados.append(producto).append("\n\n");
-            }
-        }
-        mostrarMensajeEnVentana(productosRegistrados.toString());
-    }
+}
