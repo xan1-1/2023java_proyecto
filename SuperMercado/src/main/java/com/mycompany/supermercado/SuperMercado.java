@@ -1,20 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-package com.mycompany.supermercado;
+package com.mycompany.menuprincipal;
 import java.util.ArrayList;
 import java.util.List;
 /**
  *
- * @author Usuario xan
+ * @author Usuario
  */
-public class SuperMercado {
-private List<Producto> productosDisponibles;
-    private Pasillo[] pasillos;
-    private Compra[] comprasRealizadas;
-    private int totalCompras;
-
-    public SuperMercado() {
+ public SuperMercado() {
         productosDisponibles = new ArrayList<>();
         pasillos = new Pasillo[10];
         String[] ArrayDeNombres = {"Frescos", "Granos", "Carniceria", "Abarrotes", "Cereales", "Limpieza", "Lacteos", "Panaderia", "Hogar", "Congelados"};
@@ -62,7 +53,7 @@ private List<Producto> productosDisponibles;
     // Implementa los métodos para generar reportes
 
     public static void main(String[] args) {
-        SuperMercado SuperMercado = new SuperMercado();
+        Supermercado supermercado = new Supermercado();
 
         while (true) {
             // Implementa el menú principal
