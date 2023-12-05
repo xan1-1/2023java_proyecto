@@ -1,3 +1,11 @@
+package com.mycompany.menuprincipal;
+import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+/**
+ *
+ * @author Usuario
+ */
 public class MenuPrincipal {
 
     public static void main(String[] args) {
